@@ -9,6 +9,59 @@ menu.opt=Optimize
 menu.upload_method=Upload method
 
 ################################################################################
+# STM32F407
+
+STM32F407.name=STM32F407
+
+#STM32F407.build.vid=0x0483
+#STM32F407.build.pid=0x5740
+#STM32F407.vid.0=0x0483
+#STM32F407.pid.0=0x5740
+
+STM32F407.build.core=arduino
+STM32F407.build.board=STM32F407
+STM32F407.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
+
+STM32F407.upload.tool=stlink_upload
+STM32F407.upload.protocol=STLink
+
+STM32F407.menu.upload_method.STLinkMethod=STLink [Automatic serial = SerialUSB]
+STM32F407.menu.upload_method.STLinkMethod.upload.protocol=STLink
+STM32F407.menu.upload_method.STLinkMethod.upload.tool=stlink_upload
+STM32F407.menu.upload_method.STLinkMethod.build.extra_flags_serial_auto=-DMENU_SERIAL_AUTO=SerialUSB
+
+STM32F407.menu.upload_method.serialMethod=Serial UART1 [TX/PA9, RX/PA10, BOOT0=1, BOOT1=0]
+STM32F407.menu.upload_method.serialMethod.upload.protocol=maple_serial
+STM32F407.menu.upload_method.serialMethod.upload.tool=serial_upload
+STM32F407.menu.upload_method.serialMethod.build.extra_flags_serial_auto=-DMENU_SERIAL_AUTO=SerialUART1
+
+STM32F407.menu.usb.SerialUSB=Serial [Virtual COM port, PA11/PA12 pins]
+STM32F407.menu.usb.SerialUSB.build.extra_flags_usb=-DMENU_USB_SERIAL
+STM32F407.menu.usb.SerialMSC=Mass storage [testing, see documentation]
+STM32F407.menu.usb.SerialMSC.build.extra_flags_usb=-DMENU_USB_MASS_STORAGE
+STM32F407.menu.usb.Disabled=Disabled, no USB
+
+STM32F407.menu.serial.Automatic=Automatically selected based on upload method
+STM32F407.menu.serial.SerialUSB=SerialUSB
+STM32F407.menu.serial.SerialUSB.build.extra_flags_serial=-DMENU_SERIAL=SerialUSB
+STM32F407.menu.serial.SerialUART1=SerialUART1
+STM32F407.menu.serial.SerialUART1.build.extra_flags_serial=-DMENU_SERIAL=SerialUART1
+
+# STM32F407VET6 board
+# Support: USB HID
+STM32F407.menu.pnum.STM32F407VET6=STM32F407VET6-BLACK
+STM32F407.menu.pnum.STM32F407VET6.node=NODE_F407VE
+STM32F407.menu.pnum.STM32F407VET6.upload.maximum_size=524288
+STM32F407.menu.pnum.STM32F407VET6.upload.maximum_data_size=131072
+STM32F407.menu.pnum.STM32F407VET6.build.mcu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard
+STM32F407.menu.pnum.STM32F407VET6.build.f_cpu=16800000L
+STM32F407.menu.pnum.STM32F407VET6.build.board=STM32F407VET6
+STM32F407.menu.pnum.STM32F407VET6.build.series=STM32F4xx
+STM32F407.menu.pnum.STM32F407VET6.build.product_line=STM32F407xx
+STM32F407.menu.pnum.STM32F407VET6.build.variant=STM32F407VET6
+STM32F407.menu.pnum.STM32F407VET6.build.cmsis_lib_gcc=arm_cortexM4l_math
+
+################################################################################
 # Nucleo 144 boards
 
 Nucleo_144.name=Nucleo-144
