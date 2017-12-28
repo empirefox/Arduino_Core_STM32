@@ -199,12 +199,12 @@ enum
 #define TIMER_UART_EMULATED TIM6
 
 // UART Definitions
-#define SERIAL_UART_INSTANCE 2 //Connected to ST-Link
+#define SERIAL_UART_INSTANCE 1 //Connected to ST-Link
 
 // Default pin used for 'Serial' instance (ex: ST-Link)
 // Mandatory for Firmata
-#define PIN_SERIAL_RX PD9
-#define PIN_SERIAL_TX PD8
+#define PIN_SERIAL_RX PA10
+#define PIN_SERIAL_TX PA9
 
 #ifdef __cplusplus
 } // extern "C"
